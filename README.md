@@ -35,7 +35,7 @@ the files:
 
 as mentioned, server.exe should work on its own, as-is.
 
-if you want to build this yourself, open a command window in the server directory and type: go build ... this will regenerate the server.exe.
+if you want to build this yourself, open a command window in the project root directory and type: go build ... this will regenerate the server.exe.
 
 to test: start the application, open a browser and type this url: http://localhost:8080/home. voila!
 
