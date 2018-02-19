@@ -18,15 +18,14 @@ installation instructions:
 3.	create a schema called netapp.
 4.	execute the crawler.sql file against the netapp schema --- as you've guessed, this will create the single table required.
 5.	the server.exe file should work, as-is. launch it! ive only tested this from the command line – recommend you do that same.
-6.	if you want to mess with the code and build it yourself, you will need the ‘go-sql-driver’ - i had to install this using a go command
+6.  to test and see the code, pull the whole thing from GitHub and put it wherever you like. in my setup, the actual project root is found at c:/go-work/source/crawler.
+7.	if you want to mess with the code and build it yourself, you will need the ‘go-sql-driver’ - i had to install this using a go command:
 
-    run the following command from a command prompt in the project root directory: 
+    after getting the project from github, run the following command from a command prompt in the project root directory: 
         go get -u github.com/go-sql-driver/mysql 
     (i think that’s what i did, not 100% sure on this, but pretty sure).
 
 the infrastructure should be all setup at this point.
-
-to test and see the code, pull the whole thing from GitHub and put it wherever you like. in my setup, the actual project root is found at c:/go-work/source/crawler.
 
 the files:
 - crawler.sql --- ddl for the table creation
