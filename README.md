@@ -20,9 +20,9 @@ installation instructions:
 5.	the server.exe file should work, as-is. launch it! ive only tested this from the command line – recommend you do that same.
 6.	if you want to mess with the code and build it yourself, you will need the ‘go-sql-driver’ - i had to install this using a go command
 
-run the following command from a command prompt in the project root directory: 
-    go get -u github.com/go-sql-driver/mysql 
-(i think that’s what i did, not 100% sure on this, but pretty sure).
+    run the following command from a command prompt in the project root directory: 
+        go get -u github.com/go-sql-driver/mysql 
+    (i think that’s what i did, not 100% sure on this, but pretty sure).
 
 the infrastructure should be all setup at this point.
 
