@@ -17,7 +17,7 @@ installation instructions:
 2.	set up a mySQL database with root/admin as username/password.
 3.	create a schema called netapp.
 4.	execute the crawler.sql file against the netapp schema --- as you've guessed, this will create the single table required.
-5.	the server.exe file should work, as-is. launch it!ive only tested this from the command line – recommend you do that same.
+5.	the server.exe file should work, as-is. launch it! ive only tested this from the command line – recommend you do that same.
 6.	if you want to mess with the code and build it yourself, you will need the ‘go-sql-driver’ - i had to install this using a go command
 
 run the following command from a command prompt in the project root directory: 
