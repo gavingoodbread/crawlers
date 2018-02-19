@@ -1,4 +1,4 @@
-# crawlers
+﻿# crawlers
 
 i found the assignment in my inbox on thursday and chose 'go' for the implementation. why 'go'? for one we had discussed it in our meeting last monday and also it’s the only one i had never heard of! fun times!
 
@@ -17,7 +17,7 @@ installation instructions:
 2.	set up a mySQL database with root/admin as username/password.
 3.	create a schema called netapp.
 4.	execute the crawler.sql file against the netapp schema --- as you've guessed, this will create the single table required.
-5.	the server.exe file should work, as-is. launch it! ive only tested this from the command line – recommend you do that same.
+5.	the crawler.exe file should work, as-is. launch it! ive only tested this from the command line – recommend you do that same.
 6.  to test and see the code, pull the whole thing from GitHub and put it wherever you like. in my setup, the actual project root is found at c:/go-work/source/crawler.
 7.	if you want to mess with the code and build it yourself, you will need the ‘go-sql-driver’ - i had to install this using a go command:
 
@@ -29,13 +29,13 @@ the infrastructure should be all setup at this point.
 
 the files:
 - crawler.sql --- ddl for the table creation
-- server.exe --- the windows executable
+- crawler.exe --- the windows executable
 - server.go --- the go source code
 - templates/crawler.html --- the html view
 
-as mentioned, server.exe should work on its own, as-is.
+as mentioned, crawler.exe should work on its own, as-is.
 
-if you want to build this yourself, open a command window in the project root directory and type: go build ... this will regenerate the server.exe.
+if you want to build this yourself, open a command window in the project root directory and type: go build ... this will regenerate the crawler.exe.
 
 to test: start the application, open a browser and type this url: http://localhost:8080/home. voila!
 
