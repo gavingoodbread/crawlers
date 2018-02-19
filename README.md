@@ -29,10 +29,10 @@ the infrastructure should be all setup at this point.
 to test and see the code, pull the whole thing from GitHub and put it wherever you like. in my setup, the actual project root is found at c:/go-work/source/crawler.
 
 the files:
-•	crawler.sql --- ddl for the table creation
-•	server.exe --- the windows executable
-•	server.go --- the go source code
-•	templates/crawler.html --- the html view
+- crawler.sql --- ddl for the table creation
+- server.exe --- the windows executable
+- server.go --- the go source code
+- templates/crawler.html --- the html view
 
 as mentioned, server.exe should work on its own, as-is.
 
@@ -43,11 +43,11 @@ to test: start the application, open a browser and type this url: http://localho
 ps - i didnt get the part where i was supposed to use git to track changes, i can tell you all the steps i took to build this though. it started out as a simple 'hello world' http server, --- the change log would look pretty silly anyhow!!!
 
 here is the basic genesis:
-o	http server that prints 'hello world'
-o	add code that gets a hard-coded website. get the body, turn it into a string, get the length of the string.
-o	add the database stuff.
-o	create an html page, add the go template stuff.
-o	do some cleanup and run some tests. more cleanup.
+- http server that prints 'hello world'
+- add code that gets a hard-coded website. get the body, turn it into a string, get the length of the string.
+- add the database stuff.
+- create an html page, add the go template stuff.
+- do some cleanup and run some tests. more cleanup.
 
 i may make some additional changes --- i'll be sure to check them in this time :). overall, this was a lot of fun! thanks!
 
