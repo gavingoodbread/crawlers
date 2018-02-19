@@ -25,7 +25,8 @@ func main() {
 //                                                                                           
 func homePage(w http.ResponseWriter, r *http.Request){
     //con, err := sql.Open("mysql", store.user+":"+store.password+"@/"+store.database)
-    db, err := sql.Open("mysql", "root:admin@/netapp?charset=utf8")
+    //db, err := sql.Open("mysql", "root:admin@/netapp?charset=utf8")
+    db, err := getDB()
         checkErr(err)
         
     rows, err, listSize := getRows(db)
@@ -103,7 +104,7 @@ func doCrawler(w http.ResponseWriter, r *http.Request){
       }
           
     //  update database with new'crawl' data
-    db, err := sql.Open("mysql", "root:admin@/netapp?charset=utf8")
+    db, err := getDB()
         
     stmt, err := db.Prepare("INSERT crawler SET url=?,count=?")
         checkErr(err)
@@ -152,7 +153,7 @@ func doCrawler(w http.ResponseWriter, r *http.Request){
     */
 }
 
-//                                                                                           
+//                                                                                   
 func getRows(db *sql.DB) (*sql.Rows, error, int){
   rows, err := db.Query("SELECT * FROM crawler")
   
@@ -164,6 +165,13 @@ func getRows(db *sql.DB) (*sql.Rows, error, int){
   fmt.Println("numRows = ", numRows)
   
   return rows, err, numRows
+}
+
+//                                                                              
+func getDB() (*sql.DB, error){
+  db, err := sql.Open("mysql", "root:admin@/netapp?charset=utf8")
+  
+  return db, err
 }
 
 
