@@ -50,4 +50,4 @@ here is the basic genesis:
 
 i may make some additional changes --- i'll be sure to check them in this time :). overall, this was a lot of fun! thanks!
 
-oh just fyi --- i started this on thursday night with zero knowledge of go and all the 'initial upload' code was complete by last night (saturday). i did read about go on thursday before selecting it. cheers!
+oh just fyi --- i started this on thursday night with zero knowledge of go and all the 'initial upload' code (which worked) was complete by last night (saturday). i did read about go on thursday before selecting it. cheers!
