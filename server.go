@@ -90,46 +90,46 @@ func doCrawler(w http.ResponseWriter, r *http.Request){
       url, count, err := handleFormAndUrl(r)
       if err != nil{
         // we have a form/url error
+        //fmt.Println(message, err)
+        message = "we have a form/url error"
+      }
+      
+      // try to do insert 
+      message, err = doInsert(db, url, count)
+      if err != nil {
         fmt.Println(message, err)
-        crawlerList = generateDbErrorData("we have a form/url error")
+        crawlerList = generateDbErrorData(message)
       } else {
-          // all is well, try to do insert 
-          message, err = doInsert(db, url, count)
+          // finally, get data from crawler table to populate view, build view
+          rows, listSize, err := getRows(db)
           if err != nil {
             fmt.Println(message, err)
+            message = "error on func getRows"
             crawlerList = generateDbErrorData(message)
           } else {
-              // finally, get data from crawler table to populate view, build view
-              rows, listSize, err := getRows(db)
-              if err != nil {
-                fmt.Println(message, err)
-                message = "error on func getRows"
-                crawlerList = generateDbErrorData(message)
-              } else {
-                  // make a slice
-                  crawlerList = make([]CrawlerData, listSize, 2*listSize)
-                  index := 0
-              
-                  for rows.Next() {
-                    var uid int
-                    var url string
-                    var count string
-                    err = rows.Scan(&uid, &url, &count)
-                    checkErr(err)
-                                
-                    entry := CrawlerData{
-                        Url:   url,
-                        Count: count,
-                    }
-                    
-                    crawlerList[index] = entry
-                    index++
-                  }
-                } // end retrieve rows worked
-              rows.Close()
-            } // end insert worked
-        } // end form - url stuff succesful
-        
+              // make a slice
+              crawlerList = make([]CrawlerData, listSize, 2*listSize)
+              index := 0
+          
+              for rows.Next() {
+                var uid int
+                var url string
+                var count string
+                err = rows.Scan(&uid, &url, &count)
+                checkErr(err)
+                            
+                entry := CrawlerData{
+                    Url:   url,
+                    Count: count,
+                }
+                
+                crawlerList[index] = entry
+                index++
+              }
+            } // end retrieve rows worked
+          rows.Close()
+        } // end insert worked
+
       db.Close()
       
     } // end db work    
@@ -167,6 +167,8 @@ func handleFormAndUrl(r *http.Request) (string, string, error){
           message = countAsString
         } 
     }
+
+  fmt.Println("message = ", "trace")
   
   return url, message, err
 }
