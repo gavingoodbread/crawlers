@@ -30,7 +30,7 @@ func homePage(w http.ResponseWriter, r *http.Request){
     rows, listSize, err := getRows(db)
         checkErr(err)
     
-    db.Close()
+    defer db.Close()
     defer rows.Close()
         
     fmt.Println("listSize", listSize)
@@ -127,17 +127,24 @@ func doCrawler(w http.ResponseWriter, r *http.Request){
                 index++
               }
             } // end retrieve rows worked
-          rows.Close()
+          defer rows.Close()
         } // end insert worked
 
-      db.Close()
+      defer db.Close()
       
     } // end db work    
     
   
   // finally, update view
   t, err := template.ParseFiles("templates/crawler.html")
+  if err != nil { 
+  	  log.Print("template parsing error: ", err) 
+  	}
+    
   err = t.Execute(w, crawlerList)
+  if err != nil { 
+  	  log.Print("template executing error: ", err) 
+  	}
 }
 
 //                                                                                
